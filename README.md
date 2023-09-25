@@ -9,4 +9,4 @@
 9 test_get_books_for_children_invalid_book_for_children_not_return - негативная проверка теста 8
 10 test_add_book_in_favorites_one_book_added - проверка добавления книги в избранное
 11 test_delete_book_from_favorites_book_exists_book_removed - проверка удаления книги из избранного
-12 test_get_list_of_favorites_books_one_book_exists_returns_list_with_one_book - проверка получения списка избранного 
+12 test_get_list_of_favorites_books_one_book_exists_returns_list_with_one_book - проверка получения списка избранного
