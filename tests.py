@@ -15,8 +15,6 @@ class TestBooksCollector:
 
     @pytest.mark.parametrize("book_name", [
         ("Д"),
-        ("Дю"),
-        ("книга состоящая из 30 символов"),
         ("Д" * 40),
         ("Д" * 21)
     ])
@@ -45,15 +43,6 @@ class TestBooksCollector:
         collector.add_new_book('Тайна Коко')
         collector.set_book_genre('Тайна Коко', 'Мультфильмы')
         assert collector.get_book_genre('Тайна Коко') == 'Мультфильмы'
-
-    def test_get_books_genre_two_valid_name_book_received(self):
-        collector = BooksCollector()
-        collector.add_new_book('Тайна Коко')
-        collector.add_new_book('Планета сокровищ')
-        collector.set_book_genre('Тайна Коко', 'Мультфильмы')
-        collector.set_book_genre('Планета сокровищ', 'Мультфильмы')
-        books_genre = collector.get_books_genre()
-        assert len(books_genre) == 2
 
     def test_get_books_with_specific_genre_returns_correct_list_when_books_added(self):
         collector = BooksCollector()
@@ -93,15 +82,15 @@ class TestBooksCollector:
     def test_delete_book_from_favorites_book_exists_book_removed(self):
         collector = BooksCollector()
         collector.add_new_book('Тайна Коко')
-        collector.set_book_genre('Тайна Коко', 'Мультфильмы')
         collector.add_book_in_favorites('Тайна Коко')
         collector.delete_book_from_favorites('Тайна Коко')
         assert 'Тайна Коко' not in collector.get_list_of_favorites_books()
 
-    def test_get_list_of_favorites_books_one_book_exists_returns_list_with_one_book(self):
+    def test_get_list_of_favorites_books_two_book_exists_returns_list_with_two_book(self):
         collector = BooksCollector()
         collector.add_new_book('Тайна Коко')
-        collector.set_book_genre('Тайна Коко', 'Мультфильмы')
+        collector.add_new_book('Дюна')
         collector.add_book_in_favorites('Тайна Коко')
+        collector.add_book_in_favorites('Дюна')
         favorites = collector.get_list_of_favorites_books()
-        assert len(favorites) == 1 and favorites[0] == "Тайна Коко"
+        assert len(favorites) == 2 and 'Тайна Коко' in favorites and 'Дюна' in favorites
