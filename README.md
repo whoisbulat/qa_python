@@ -8,7 +8,9 @@
 
 Тесты:
 1  test_add_new_book_add_two_books - проверка добавления двух книг
+
 2 test_add_new_book_valid_number_added - проверка добавления книги с названием более 0 символов и не более 40 символов. Тест граничных значений: 1, 2, 30 и 40, а также внутри КЭ: 21 символ
+
 3 test_add_new_book_invalid_number_not_added - негативный тест на проверку длины названия книги. 0, 41, 50 символов
 4 test_set_book_genre_valid_genre_added - проверка на добавление жанра книге
 5 test_get_book_genre_valid_name_book_received - проверка получения жанра книги по имени книги
